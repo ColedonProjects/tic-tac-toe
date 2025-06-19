@@ -1,5 +1,11 @@
 # 🎮 Advanced TicTacToe
 
+[![npm version](https://badge.fury.io/js/@coledon%2Fadvanced-tictactoe.svg)](https://badge.fury.io/js/@coledon%2Fadvanced-tictactoe)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-18+-61DAFB.svg)](https://reactjs.org/)
+[![GitHub stars](https://img.shields.io/github/stars/ColedonProjects/tic-tac-toe?style=social)](https://github.com/ColedonProjects/tic-tac-toe)
+
 A modern, feature-rich TicTacToe React component with AI opponents, smooth animations, and persistent statistics. Perfect for adding entertainment features, 404 pages, or hidden games to your applications.
 
 ## ✨ Features

@@ -8,7 +8,9 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md"
   ],
   "scripts": {
     "dev": "vite",
@@ -35,15 +37,34 @@
     "404-page",
     "hidden-game",
     "framer-motion",
-    "tailwindcss"
+    "tailwindcss",
+    "game-component",
+    "react-component",
+    "artificial-intelligence",
+    "web-game",
+    "ui-component",
+    "minimax",
+    "board-game",
+    "interactive"
   ],
-  "author": "Coledon",
+  "author": {
+    "name": "Coledon",
+    "url": "https://github.com/ColedonProjects"
+  },
   "license": "MIT",
   "type": "module",
   "bugs": {
     "url": "https://github.com/ColedonProjects/tic-tac-toe/issues"
   },
   "homepage": "https://github.com/ColedonProjects/tic-tac-toe#readme",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
