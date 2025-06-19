@@ -1,230 +1,320 @@
-# Advanced TicTacToe Game
+# 🎮 Advanced TicTacToe
 
-A modern, feature-rich TicTacToe game built with React, TypeScript, and Tailwind CSS. Features AI opponents, multiple board sizes, animations, achievements, and more!
+A modern, feature-rich TicTacToe React component with AI opponents, smooth animations, and persistent statistics. Perfect for adding entertainment features, 404 pages, or hidden games to your applications.
 
-## 🎮 Features
+## ✨ Features
 
-### Core Gameplay
-- **Multiple Game Modes**: Single Player vs AI, Two Player local, Tournament mode
-- **Flexible Board Sizes**: 3x3, 4x4, and 5x5 grids
-- **Smart AI**: Three difficulty levels (Easy, Medium, Hard) with adaptive learning
-- **Move History**: Track and review all moves made during the game
-- **Undo System**: Undo moves (single or multiple for AI games)
+- 🤖 **Smart AI Opponents** - Three difficulty levels with intelligent gameplay
+- 🎨 **Beautiful Animations** - Smooth transitions powered by Framer Motion
+- 📊 **Persistent Statistics** - Cookie-based player stats and progress tracking
+- 📱 **Mobile Responsive** - Touch-friendly interface that works on all devices
+- 🎯 **Flexible Integration** - Easy to embed in any React application
+- 🔧 **TypeScript Support** - Full type safety and excellent developer experience
+- 🎨 **Tailwind CSS Styling** - Modern, customizable design system
 
-### Visual Experience
-- **Smooth Animations**: Powered by Framer Motion
-- **Multiple Themes**: Light, Dark, Neon, and Classic themes
-- **Responsive Design**: Optimized for desktop and mobile devices
-- **Particle Effects**: Winning celebrations and visual feedback
-- **Modern UI**: Clean, accessible interface with intuitive controls
+## 📦 Installation
 
-### Advanced Features
-- **Achievement System**: Unlock achievements for various accomplishments
-- **Statistics Tracking**: Win/loss ratios, streaks, and performance metrics
-- **Auto-save**: Automatic game state persistence
-- **Tournament Mode**: Bracket-style competitions
-- **Sound Effects**: Audio feedback for moves and events (configurable)
+```bash
+npm install @coledon/advanced-tictactoe
+```
 
-### AI Capabilities
-- **Minimax Algorithm**: With alpha-beta pruning for optimal performance
-- **Adaptive Learning**: AI learns from games and improves over time
-- **Strategic Play**: Position evaluation and move optimization
-- **Difficulty Scaling**: From beginner-friendly to expert-level challenge
+### Peer Dependencies
+
+Make sure you have these installed in your project:
+
+```bash
+npm install react react-dom
+```
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
+### Basic Usage
 
-### Installation
+```tsx
+import React from 'react';
+import { TicTacToeGame } from '@coledon/advanced-tictactoe';
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd tic-tac-toe
-   ```
+function App() {
+  return (
+    <div className="container mx-auto p-4">
+      <h1>Welcome to My App</h1>
+      <TicTacToeGame />
+    </div>
+  );
+}
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser**
-   ```
-   http://localhost:3000
-   ```
-
-### Build for Production
-```bash
-npm run build
+export default App;
 ```
 
-## 🎯 How to Play
+### Advanced Configuration
 
-### Basic Rules
-1. Players take turns placing their mark (X or O) on the board
-2. First player to get required marks in a row (horizontal, vertical, or diagonal) wins
-3. If the board fills up without a winner, it's a draw
+```tsx
+import React from 'react';
+import { TicTacToeGame } from '@coledon/advanced-tictactoe';
 
-### Board Sizes & Win Conditions
-- **3x3 Board**: 3 in a row to win
-- **4x4 Board**: 4 in a row to win  
-- **5x5 Board**: 4 in a row to win (for balance)
+function GamePage() {
+  const handleGameStateChange = (state: 'menu' | 'game' | 'settings') => {
+    console.log('Game state changed to:', state);
+  };
 
-### Game Modes
+  return (
+    <TicTacToeGame
+      initialPlayerName="John Doe"
+      defaultDifficulty="hard"
+      showMenu={true}
+      className="game-container"
+      onGameStateChange={handleGameStateChange}
+      style={{ minHeight: '100vh' }}
+    />
+  );
+}
+```
 
-#### Single Player
-- Choose AI difficulty (Easy, Medium, Hard)
-- AI will adapt and learn from your playing style
-- Perfect for practice and skill improvement
+### Embedded Game (No Menu)
 
-#### Two Player
-- Local multiplayer on the same device
-- Great for playing with friends and family
-- Real-time turn indicators and scoring
+Perfect for 404 pages or inline entertainment:
 
-#### Tournament
-- Create bracket-style competitions
-- Multiple rounds with elimination
-- Track winners and statistics
+```tsx
+import React from 'react';
+import { TicTacToeGame } from '@coledon/advanced-tictactoe';
 
-## ⚙️ Configuration
+function NotFoundPage() {
+  return (
+    <div className="text-center">
+      <h1>404 - Page Not Found</h1>
+      <p>While you're here, want to play a quick game?</p>
+      
+      <TicTacToeGame
+        showMenu={false}
+        defaultDifficulty="medium"
+        className="max-w-2xl mx-auto mt-8"
+      />
+    </div>
+  );
+}
+```
 
-### Game Settings
-- **AI Difficulty**: Easy, Medium, Hard
-- **Board Size**: 3x3, 4x4, 5x5
-- **Themes**: Light, Dark, Neon, Classic
-- **Animations**: Enable/disable visual effects
-- **Sound**: Configure audio feedback
+## 🔧 Component API
 
-### Advanced Options
-- **Time Limits**: Set move timers (optional)
-- **First Move Advantage**: Toggle X always goes first
-- **Move Hints**: Show suggested moves (two-player only)
+### TicTacToeGame Props
 
-## 🏆 Achievements
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `initialPlayerName` | `string` | `"Player"` | Initial player name |
+| `className` | `string` | `undefined` | CSS class for the game container |
+| `style` | `React.CSSProperties` | `undefined` | Inline styles for the container |
+| `showMenu` | `boolean` | `true` | Whether to show the main menu |
+| `defaultDifficulty` | `"easy" \| "medium" \| "hard"` | `"medium"` | Default AI difficulty |
+| `onGameStateChange` | `(state) => void` | `undefined` | Callback when game state changes |
 
-Unlock achievements by:
-- Winning your first game
-- Achieving win streaks (5, 10+ games)
-- Fast victories (under 30 seconds)
-- Perfect games (opponent makes no moves)
-- Defeating AI on all difficulty levels
-- Playing multiple board sizes
+## 🎯 Advanced Usage
 
-## 🎨 Themes
+### Using Individual Components
 
-### Light Mode
-- Clean, bright interface
-- High contrast for accessibility
-- Perfect for daytime gaming
+If you need more control, you can use individual components:
 
-### Dark Mode  
-- Easy on the eyes
-- Great for low-light environments
-- Modern, sleek appearance
+```tsx
+import React from 'react';
+import { 
+  GameProvider, 
+  GameBoard, 
+  ScoreBoard, 
+  useGame 
+} from '@coledon/advanced-tictactoe';
 
-### Neon
-- Cyberpunk-inspired design
-- Glowing effects and animations
-- High-energy gaming experience
+function CustomGameLayout() {
+  return (
+    <GameProvider>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <ScoreBoard />
+        <GameBoard />
+        <div>
+          {/* Your custom sidebar content */}
+        </div>
+      </div>
+    </GameProvider>
+  );
+}
+```
 
-### Classic
-- Traditional, timeless design
-- Focused on gameplay
-- Minimal distractions
+### Custom Hook Usage
 
-## 🛠️ Technical Details
+```tsx
+import React from 'react';
+import { GameProvider, useGame } from '@coledon/advanced-tictactoe';
 
-### Built With
-- **React 18** - Modern React with Hooks
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first styling
-- **Framer Motion** - Smooth animations
-- **Lucide React** - Beautiful icons
-- **Vite** - Fast build tool
+function CustomGameControls() {
+  const { 
+    gameState, 
+    makeMove, 
+    resetGame, 
+    playerData,
+    startNewGame 
+  } = useGame();
 
-### Architecture
-- **Component-based**: Modular, reusable components
-- **Hook-based State**: Custom hooks for game logic
-- **Context API**: Global state management
-- **Engine Pattern**: Separated game logic from UI
-- **Strategy Pattern**: Different AI difficulty implementations
+  return (
+    <div>
+      <p>Current Player: {gameState.currentPlayer}</p>
+      <p>Games Played: {playerData.gamesPlayed}</p>
+      <button onClick={() => startNewGame('singlePlayer')}>
+        New Game vs AI
+      </button>
+      <button onClick={resetGame}>Reset</button>
+    </div>
+  );
+}
 
-### Performance
-- **Optimized Rendering**: Minimal re-renders with React.memo
-- **Efficient AI**: Alpha-beta pruning for fast moves
-- **Responsive Design**: Smooth on all devices
-- **Code Splitting**: Lazy loading for better performance
+function App() {
+  return (
+    <GameProvider>
+      <CustomGameControls />
+    </GameProvider>
+  );
+}
+```
+
+## 🎨 Styling & Customization
+
+The component uses Tailwind CSS classes. You have several options for styling:
+
+### Option 1: Include Tailwind CSS
+
+If your project uses Tailwind CSS, the component will inherit your theme:
+
+```tsx
+// The component will use your existing Tailwind configuration
+<TicTacToeGame className="bg-gray-100 rounded-lg shadow-xl" />
+```
+
+### Option 2: Override with Custom CSS
+
+```css
+/* Custom styling */
+.game-container {
+  --primary-color: #3b82f6;
+  --secondary-color: #64748b;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+}
+
+.game-container .bg-blue-500 {
+  background-color: var(--primary-color) !important;
+}
+```
+
+### Option 3: CSS-in-JS
+
+```tsx
+const gameStyles = {
+  minHeight: '600px',
+  backgroundColor: '#f8fafc',
+  borderRadius: '12px',
+  boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
+};
+
+<TicTacToeGame style={gameStyles} />
+```
+
+## 🔌 Available Exports
+
+```tsx
+// Main component
+import { TicTacToeGame } from '@coledon/advanced-tictactoe';
+
+// Individual components
+import { 
+  GameBoard,
+  ScoreBoard,
+  MainMenu,
+  GameView 
+} from '@coledon/advanced-tictactoe';
+
+// Context and hooks
+import { 
+  GameProvider,
+  useGame,
+  useGameState 
+} from '@coledon/advanced-tictactoe';
+
+// Core engine and AI
+import { 
+  GameEngine,
+  AIPlayer 
+} from '@coledon/advanced-tictactoe';
+
+// TypeScript types
+import type {
+  GameState,
+  GameMode,
+  Player,
+  Position,
+  Board,
+  WinCondition,
+  GamePreferences,
+  Difficulty
+} from '@coledon/advanced-tictactoe';
+```
 
 ## 📱 Mobile Support
 
-The game is fully optimized for mobile devices:
-- **Touch Controls**: Responsive touch input
-- **Responsive Layout**: Adapts to all screen sizes
-- **Mobile Gestures**: Swipe and tap interactions
-- **Performance**: Optimized for mobile hardware
+The component is fully responsive and touch-friendly:
+
+- ✅ Touch controls for mobile devices
+- ✅ Responsive grid layouts
+- ✅ Optimized button sizes for touch
+- ✅ Swipe gestures support
+- ✅ Portrait and landscape orientations
+
+## 🧠 AI Difficulty Levels
+
+| Level | Behavior |
+|-------|----------|
+| **Easy** | 50% random moves, 50% strategic moves |
+| **Medium** | Always tries to win/block, then strategic placement |
+| **Hard** | Minimax algorithm with lookahead - nearly unbeatable |
+
+## 💾 Data Persistence
+
+Player statistics are automatically saved using browser cookies:
+
+- Player name and preferences
+- Games played, wins, draws
+- Current win streak
+- Data persists across browser sessions
+- Automatic cleanup and optimization
 
 ## 🔧 Development
 
-### Project Structure
-```
-src/
-├── components/         # React components
-├── hooks/             # Custom React hooks
-├── types/             # TypeScript type definitions
-├── core/              # Game engine and logic
-├── ai/                # AI player implementation
-├── utils/             # Utility functions and constants
-├── styles/            # CSS and styling
-├── assets/            # Static assets
-├── storage/           # Data persistence
-└── audio/             # Sound management
-```
+### Building from Source
 
-### Key Components
-- **GameEngine**: Core game logic and validation
-- **AIPlayer**: Minimax algorithm with learning
-- **GameProvider**: React Context for state management
-- **GameBoard**: Interactive game grid
-- **ScoreBoard**: Player statistics and scores
-
-### Development Scripts
 ```bash
-npm run dev         # Start development server
-npm run build       # Build for production
-npm run preview     # Preview production build
-npm run lint        # Run TypeScript linter
+git clone https://github.com/ColedonProjects/tic-tac-toe.git
+cd tic-tac-toe
+npm install
+npm run build:lib
 ```
+
+### Running the Demo
+
+```bash
+npm run dev
+```
+
+## 📄 License
+
+MIT © [Coledon](https://github.com/Coledon-projects)
 
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+## 📞 Support
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🎉 Acknowledgments
-
-- React team for the amazing framework
-- Tailwind CSS for the utility-first CSS framework
-- Framer Motion for smooth animations
-- Lucide for beautiful icons
-- The open-source community for inspiration and tools
+- 🐛 [Report bugs](https://github.com/ColedonProjects/tic-tac-toe/issues)
+- 💡 [Request features](https://github.com/ColedonProjects/tic-tac-toe/issues)
+- 📖 [Documentation](https://github.com/ColedonProjects/tic-tac-toe#readme)
+- 🌐 [Live Demo](https://tic-tac-toe-pied-alpha.vercel.app)
 
 ---
 
-**Enjoy playing! 🎮** 
+Made with ❤️ by [ColedonProjects](https://github.com/ColedonProjects) 

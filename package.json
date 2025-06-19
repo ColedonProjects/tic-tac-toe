@@ -1,41 +1,61 @@
 {
-  "name": "tic-tac-toe",
+  "name": "@coledon/advanced-tictactoe",
   "version": "1.0.0",
-  "description": "Advanced TicTacToe game with AI, animations, and multiple game modes",
-  "main": "index.js",
+  "description": "Advanced TicTacToe React component with AI opponents, animations, and multiple game modes. Perfect for 404 pages, hidden games, or entertainment features.",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build:lib && npm run build:demo",
+    "build:lib": "vite build --config vite.lib.config.ts",
+    "build:demo": "vite build",
     "preview": "vite preview",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "prepublishOnly": "npm run lint && npm run build:lib"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Coledon-projects/tic-tac-toe.git"
+    "url": "git+https://github.com/ColedonProjects/tic-tac-toe.git"
   },
   "keywords": [
-    "tictactoe",
-    "game",
     "react",
+    "tictactoe",
+    "tic-tac-toe",
+    "game",
+    "component",
     "typescript",
-    "ai"
+    "ai",
+    "entertainment",
+    "404-page",
+    "hidden-game",
+    "framer-motion",
+    "tailwindcss"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Coledon",
+  "license": "MIT",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/Coledon-projects/tic-tac-toe/issues"
+    "url": "https://github.com/ColedonProjects/tic-tac-toe/issues"
   },
-  "homepage": "https://github.com/Coledon-projects/tic-tac-toe#readme",
+  "homepage": "https://github.com/ColedonProjects/tic-tac-toe#readme",
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
   "dependencies": {
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.4",
-    "lucide-react": "^0.292.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "lucide-react": "^0.292.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
+    "@types/node": "^24.0.3",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^8.34.1",
@@ -46,8 +66,11 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "postcss": "^8.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2",
-    "vite": "^4.5.0"
+    "vite": "^4.5.0",
+    "vite-plugin-dts": "^3.9.1"
   }
 }
