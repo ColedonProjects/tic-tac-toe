@@ -1,0 +1,53 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "Advanced TicTacToe game with AI, animations, and multiple game modes",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coledon-projects/tic-tac-toe.git"
+  },
+  "keywords": [
+    "tictactoe",
+    "game",
+    "react",
+    "typescript",
+    "ai"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Coledon-projects/tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/Coledon-projects/tic-tac-toe#readme",
+  "dependencies": {
+    "clsx": "^2.0.0",
+    "framer-motion": "^10.16.4",
+    "lucide-react": "^0.292.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@typescript-eslint/eslint-plugin": "^8.34.1",
+    "@typescript-eslint/parser": "^8.34.1",
+    "@vitejs/plugin-react": "^4.1.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.29.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0"
+  }
+}
